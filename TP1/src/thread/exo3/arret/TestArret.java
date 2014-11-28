@@ -9,7 +9,6 @@ public class TestArret {
 		try {
 			Thread.sleep(2_000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		task.setStopped(true);

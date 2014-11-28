@@ -8,11 +8,11 @@ public class Compteur {
 		this.l = 0;
 	}
 	
-	public long getL(){
+	public synchronized long getL(){
 		return this.l;
 	}
 	
-	public void next(){
+	public synchronized void next(){
 		this.l++;
 	}
 }
