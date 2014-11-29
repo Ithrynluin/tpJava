@@ -39,4 +39,6 @@ public class TestSynchronisation {
 		
 		System.out.println(compteur.getL());
 	}
+	//Il faut joindre les Thread pour afficher le résultat une fois que tu les thread au finit leur execution
+	
 }
