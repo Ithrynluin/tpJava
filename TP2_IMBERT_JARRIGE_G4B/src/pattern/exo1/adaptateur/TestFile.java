@@ -1,4 +1,4 @@
-package exo1.adaptateur;
+package pattern.exo1.adaptateur;
 
 public class TestFile {
 

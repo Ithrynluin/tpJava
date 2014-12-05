@@ -1,4 +1,4 @@
-package exo1.adaptateur;
+package pattern.exo1.adaptateur;
 
 import java.util.ArrayList;
 import java.util.List;
