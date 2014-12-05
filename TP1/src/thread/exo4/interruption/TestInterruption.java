@@ -14,5 +14,8 @@ public class TestInterruption {
 			e.printStackTrace();
 		}
 	}
+	
+	//Si les points s'affichent toutes les 10_000 ms, le programme se terminant
+	//au bout de 2_000 ms, il s'arrêtera sans afficher aucun point.
 
 }
