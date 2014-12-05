@@ -14,5 +14,5 @@ public class TestInterruption {
 			e.printStackTrace();
 		}
 	}
-
+//Si les points s'affiche toutes les 10_000ms le thread est interrompu et n'affiche aucun point.
 }

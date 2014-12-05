@@ -35,6 +35,10 @@ public class TestExecutorService {
 	}
 }
 
+//La classe Task n'est pas Thread-safe car s'il y a trop de Thread qui sont lancé en
+// même temps,
+// ils ne s'exécuteront pas toutes les secondes.
+
 // Si on soumet 3 Thread, les 2 premiers s'executent normalement,
 // le troisième est mis en attente puis s'éxecute une fois que ces deux Threads se terminent.
 

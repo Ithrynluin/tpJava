@@ -25,7 +25,5 @@ public class Task implements Runnable {
 		}
 	}
 
-	// Il n'est pas Thread-safe car s'il y a trop de Thread qui sont lancé en
-	// même temps,
-	// ils ne s'exécuteront pas toutes les secondes.
+	
 }
