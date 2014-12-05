@@ -51,8 +51,9 @@ public class TestLongAction extends JFrame{
 	
 	//L'application freeze, elle ne se redessine pas lorsqu'on redimensionne la fenêtre.
 	
+	//Solutions :
 	//La classe traitementLong implement Runnable.
-	
+	//Et
 	//On utilise la classe SwingWorker.
 }
 

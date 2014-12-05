@@ -3,8 +3,7 @@ package thread.exo2;
 public class TestDemon {
 
 	public static void main(String[] args) {
-		new Demon().start();
-		
+		new Demon().start();	
 		try {
 			Thread.sleep(2_000);
 		} catch (InterruptedException e) {
@@ -13,7 +12,6 @@ public class TestDemon {
 		
 		System.out.println("Arrêt " + Thread.currentThread().getName());
 	}
-
 }
 
 //1 - L'application se termine mais le Thread continue à s'exécuter.
