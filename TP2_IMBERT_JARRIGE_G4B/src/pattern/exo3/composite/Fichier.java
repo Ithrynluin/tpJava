@@ -1,4 +1,7 @@
-package pattern.exo3;
+package pattern.exo3.composite;
+
+import pattern.exo3.visiteur.Visiteur;
+
 
 public class Fichier extends ComposantSysteme {
 	
@@ -40,6 +43,9 @@ public class Fichier extends ComposantSysteme {
 		return builder.toString();
 	}
 	
-	
+	@Override
+	public void acceptVisiteur(Visiteur visiteur) {
+		visiteur.visit(this);
+	}
 
 }

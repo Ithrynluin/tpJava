@@ -1,9 +1,11 @@
-package pattern.exo3;
+package pattern.exo3.composite;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Repetoire extends ComposantSysteme {
+import pattern.exo3.visiteur.Visiteur;
+
+public class Repertoire extends ComposantSysteme {
 
 	private final String nom;
 	private final List<ComposantSysteme> listComposantSystemes;
@@ -12,7 +14,7 @@ public class Repetoire extends ComposantSysteme {
 	 * @param nom
 	 * @param listComposantSystemes
 	 */
-	public Repetoire(String nom) {
+	public Repertoire(String nom) {
 		this.nom = nom;
 		this.listComposantSystemes = new ArrayList<ComposantSysteme>();
 	}
@@ -71,6 +73,12 @@ public class Repetoire extends ComposantSysteme {
 		return builder.toString();
 	}
 	
-	
+	@Override
+	public void acceptVisiteur(Visiteur visiteur) {
+		visiteur.visit(this);
+		for(ComposantSysteme comp : listComposantSystemes){
+			visiteur.visit(comp);
+		}
+	}
 	
 }

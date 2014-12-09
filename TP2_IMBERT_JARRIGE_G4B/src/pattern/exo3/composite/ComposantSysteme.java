@@ -1,4 +1,6 @@
-package pattern.exo3;
+package pattern.exo3.composite;
+
+import pattern.exo3.visiteur.Visiteur;
 
 public abstract class ComposantSysteme {
 	
@@ -22,5 +24,7 @@ public abstract class ComposantSysteme {
 		throw new UnsupportedOperationException();
 	}
 	
-	
+	public void acceptVisiteur(Visiteur visiteur){
+		throw new UnsupportedOperationException();
+	}
 }
