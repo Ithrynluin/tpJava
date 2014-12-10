@@ -4,7 +4,12 @@ import pattern.exo3.visiteur.FichierVisiteur;
 import pattern.exo3.visiteur.GlobalNameVisiteur;
 import pattern.exo3.visiteur.HierarchiqueVisiteur;
 
-
+/**
+ * Classe de test des classes ComposantSysteme, Repertoire, Fichier, FichierVisteur, 
+ * GlobalNameVisiteur, HierarchiqueVisteur et Visiteur
+ * @author imbert / jarrige
+ *
+ */
 public class TestComposite {
 
 	public static void main(String[] args) {
