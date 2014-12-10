@@ -1,7 +1,7 @@
 package pattern.exo1.adaptateur;
 
 /**
- * Classe de test de la classe FileImpl
+ * Classe de test des classes FileImpl et File
  * @author imbert / jarrige
  *
  */

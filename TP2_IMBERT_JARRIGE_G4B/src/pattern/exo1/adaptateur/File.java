@@ -1,7 +1,7 @@
 package pattern.exo1.adaptateur;
 
 /**
- * Interface qui reprrésente une File
+ * Interface qui représente une File
  * @author Imbert / Jarrige
  *
  * @param <E>
@@ -18,7 +18,7 @@ public interface File<E> {
 	/**
 	 * Insère un élément en queue de File.
 	 * @param e
-	 * 		L'élément à iinsérer
+	 * 		L'élément à insérer
 	 */
 	void insererQueue(E e);
 	
