@@ -1,1 +1,4 @@
+pattern.exo1.adaptateur
 pattern.exo2.observateur
+pattern.exo3.composite
+pattern.exo3.visiteur
