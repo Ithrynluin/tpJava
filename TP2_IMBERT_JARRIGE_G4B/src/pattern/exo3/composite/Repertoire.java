@@ -75,10 +75,10 @@ public class Repertoire extends ComposantSysteme {
 	
 	@Override
 	public void acceptVisiteur(Visiteur visiteur) {
+		visiteur.beforeVisit(this);
 		visiteur.visit(this);
-		for(ComposantSysteme comp : listComposantSystemes){
-			visiteur.beforeVisit(comp);
-			comp.acceptVisiteur(visiteur);
+		for (ComposantSysteme composantSysteme : listComposantSystemes) {
+			composantSysteme.acceptVisiteur(visiteur);
 		}
 		visiteur.afterVisit(this);
 	}

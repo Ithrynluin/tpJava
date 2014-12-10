@@ -21,7 +21,6 @@ public class GlobalNameVisiteur implements Visiteur {
 			System.out.print(nom + "\\");
 		}
 		System.out.println();
-		afterVisit(fichier);
 	}
 
 	@Override
@@ -41,9 +40,8 @@ public class GlobalNameVisiteur implements Visiteur {
 	public void afterVisit(ComposantSysteme composantSysteme) {
 		int size = rep.size();
 		if(size > 0){
-			rep.remove(size - 1);
+			rep.remove(composantSysteme.getNom());
 		}
-		
 	}
 
 }

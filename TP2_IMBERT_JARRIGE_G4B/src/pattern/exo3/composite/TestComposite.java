@@ -22,7 +22,7 @@ public class TestComposite {
 		System.out.println(racine);
 		
 		racine.acceptVisiteur(new HierarchiqueVisiteur());
-		
+		System.out.println();
 		racine.acceptVisiteur(new GlobalNameVisiteur());
 	}
 
