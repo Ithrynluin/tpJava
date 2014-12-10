@@ -77,8 +77,10 @@ public class Repertoire extends ComposantSysteme {
 	public void acceptVisiteur(Visiteur visiteur) {
 		visiteur.visit(this);
 		for(ComposantSysteme comp : listComposantSystemes){
-			visiteur.visit(comp);
+			visiteur.beforeVisit(comp);
+			comp.acceptVisiteur(visiteur);
 		}
+		visiteur.afterVisit(this);
 	}
 	
 }

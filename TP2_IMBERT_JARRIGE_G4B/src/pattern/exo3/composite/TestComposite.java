@@ -1,5 +1,8 @@
 package pattern.exo3.composite;
 
+import pattern.exo3.visiteur.GlobalNameVisiteur;
+import pattern.exo3.visiteur.HierarchiqueVisiteur;
+
 
 public class TestComposite {
 
@@ -17,6 +20,10 @@ public class TestComposite {
 		racine.addComposantSysteme(temp);
 		
 		System.out.println(racine);
+		
+		racine.acceptVisiteur(new HierarchiqueVisiteur());
+		
+		racine.acceptVisiteur(new GlobalNameVisiteur());
 	}
 
 	//Pour implémenter la méthode getTaille de Repertoire, on additionne toutes 
@@ -24,6 +31,11 @@ public class TestComposite {
 	
 	/*
 	 * On obtient à l'affichage quelque chose d'illisible.
+	 */
+	
+	/*
+	 * Pour propager le visiteur:
+	 * 	
 	 */
 	
 	
