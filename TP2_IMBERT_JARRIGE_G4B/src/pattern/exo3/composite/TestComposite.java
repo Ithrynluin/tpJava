@@ -1,5 +1,6 @@
 package pattern.exo3.composite;
 
+import pattern.exo3.visiteur.FichierVisiteur;
 import pattern.exo3.visiteur.GlobalNameVisiteur;
 import pattern.exo3.visiteur.HierarchiqueVisiteur;
 
@@ -24,6 +25,12 @@ public class TestComposite {
 		racine.acceptVisiteur(new HierarchiqueVisiteur());
 		System.out.println();
 		racine.acceptVisiteur(new GlobalNameVisiteur());
+		System.out.println();
+		FichierVisiteur visitFichier = new FichierVisiteur();
+		racine.acceptVisiteur(visitFichier);
+		for (Fichier fichier : visitFichier.getListFichier()) {
+			System.out.println(fichier.getNom());
+		}
 	}
 
 	//Pour implémenter la méthode getTaille de Repertoire, on additionne toutes 
