@@ -75,9 +75,7 @@ public class Grapheur extends JFrame implements Observateur {
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/**
 	 * @see
 	 * pattern.exo2.observateur.Observateur#modifier(pattern.exo2.observateur
 	 * .Donnee)

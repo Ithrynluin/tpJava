@@ -1,7 +1,7 @@
 package pattern.exo2.observateur;
 
 /**
- * Classe caract�risant un ensemble de donn�e m�t�orologique.
+ * Classe caractérisant un ensemble de donnée météorologique.
  * 
  * @author V579656
  * @since 10/11/2014
@@ -18,11 +18,11 @@ public class Donnee {
 	 * Constructeur de la classe Donnee.
 	 * 
 	 * @param temperature
-	 *            la temperature (� C).
+	 *            la temperature (° C).
 	 * @param precipitation
-	 *            le niveau de pr�cipitations (mm).
+	 *            le niveau de précipitations (mm).
 	 * @param pression
-	 *            la pression atmosph�rique (hPa).
+	 *            la pression atmosphérique (hPa).
 	 */
 	public Donnee(double temperature, double precipitation, double pression) {
 		super();

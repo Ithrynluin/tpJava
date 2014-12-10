@@ -4,18 +4,34 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * Cette est classe représente un capteur météorologique.
+ * Elle génère des données toutes les 500 millisecondes.
+ * 
+ * Cette classe est un Sujet.
+ * 
+ * @author Imbert / Jarrige
+ *
+ */
 public class Capteur implements Runnable, Sujet {
 
 	private final List<Observateur> observateurs;
 	private Donnee donnee;
 	private int compteur;
 	
+	/**
+	 * Constructeur par défaut.
+	 */
 	public Capteur() {
 		this.observateurs = new ArrayList<Observateur>();
 		this.donnee = null;
 		this.compteur = 0;
 	}
 	
+	/**
+	 * Génère des données tous les 500 ms.
+	 * @see java.lang.Runnable#run()
+	 */
 	@Override
 	public void run() {
 		try{
@@ -31,6 +47,9 @@ public class Capteur implements Runnable, Sujet {
 		}
 	}
 
+	/**
+	 * @see pattern.exo2.observateur.Sujet#ajouterObservateur(Observateur)
+	 */
 	@Override
 	public void ajouterObservateur(Observateur observateur) {
 		if(observateur == null){
@@ -39,6 +58,9 @@ public class Capteur implements Runnable, Sujet {
 		this.observateurs.add(observateur);
 	}
 
+	/**
+	 * @see pattern.exo2.observateur.Sujet#retirerObservateur(Observateur)
+	 */
 	@Override
 	public void retirerObservateur(Observateur observateur) {
 		if(observateur == null){
@@ -47,6 +69,9 @@ public class Capteur implements Runnable, Sujet {
 		this.observateurs.remove(observateur);
 	}
 
+	/**
+	 * @see pattern.exo2.observateur.Sujet#notifierObservateurs()
+	 */
 	@Override
 	public void notifierObservateurs() {
 		for(Observateur obs : observateurs){

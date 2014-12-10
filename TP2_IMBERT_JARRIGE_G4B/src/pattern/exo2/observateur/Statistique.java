@@ -1,17 +1,29 @@
 package pattern.exo2.observateur;
 
+/**
+ * Cette classe génére des statistique météorologique.
+ * Cette classe est un observateur.
+ * @author Imbert / Jarrige
+ *
+ */
 public class Statistique implements Observateur {
 
 	private double min;
 	private double max;
 	private double moyenne;
 	
+	/**
+	 * Constructeur par défaut
+	 */
 	public Statistique() {
 		this.max = 0;
 		this.min = 0;
 		this.moyenne = 0;
 	}
 	
+	/**
+	 * @see Observateur#modifier(Donnee)
+	 */
 	@Override
 	public void modifier(Donnee donnee) {
 		if(this.min > donnee.getTemperature()){
@@ -31,42 +43,51 @@ public class Statistique implements Observateur {
 	}
 
 	/**
-	 * @return the min
+	 * Retourne la température minimum.
+	 * @return la température minimum
 	 */
 	public double getMinTemperature() {
 		return min;
 	}
 
 	/**
-	 * @param min the min to set
+	 * Modifie la température minimum.
+	 * @param min
+	 * 		la nouvelle température minimum
 	 */
 	public void setMin(double min) {
 		this.min = min;
 	}
 
 	/**
-	 * @return the max
+	 * Retourne la température maximum.
+	 * @return la température maximun
 	 */
 	public double getMaxTemperatue() {
 		return max;
 	}
 
 	/**
-	 * @param max the max to set
+	 * Modifie la température maximum.
+	 * @param max
+	 * 		la nouvelle température maximum
 	 */
 	public void setMax(double max) {
 		this.max = max;
 	}
 
 	/**
-	 * @return the moyenne
+	 * Retourne la température moyenne.
+	 * @return la température moyenne
 	 */
 	public double getCumulTemperature() {
 		return moyenne;
 	}
 
 	/**
-	 * @param moyenne the moyenne to set
+	 * Modifie la température moyenne.
+	 * @param moyenne
+	 * 		la nouvelle température moyenne
 	 */
 	public void setMoyenne(double moyenne) {
 		this.moyenne = moyenne;
