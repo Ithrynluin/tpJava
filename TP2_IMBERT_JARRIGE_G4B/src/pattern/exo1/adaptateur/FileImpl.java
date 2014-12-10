@@ -31,13 +31,16 @@ public class FileImpl<E> implements File<E>{
 	}
 
 	/**
-	 * @see 
+	 * @see exo1.adaptateur.File#insereQueue(E e)
 	 */
 	@Override
 	public void insererQueue(E e) {
 		this.list.add(e);
 	}
-
+	
+	/**
+	 * @see exo1.adaptateur.File#retirerTete()
+	 */
 	@Override
 	public void retirerTete() {
 		if(this.estVide()){
@@ -46,11 +49,17 @@ public class FileImpl<E> implements File<E>{
 		this.list.remove(0);
 	}
 
+	/**
+	 * @see exo1.adaptateur.File#longueur()
+	 */
 	@Override
 	public int longueur() {
 		return this.list.size();
 	}
 
+	/**
+	 * @see exo1.adaptateur.File#estVide()
+	 */
 	@Override
 	public boolean estVide() {
 		return this.list.isEmpty();
