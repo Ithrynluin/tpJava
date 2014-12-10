@@ -1,16 +1,15 @@
 package pattern.exo3.visiteur;
 
-import java.util.List;
-
 import pattern.exo3.composite.ComposantSysteme;
 import pattern.exo3.composite.Fichier;
 import pattern.exo3.composite.Repertoire;
 
 public class HierarchiqueVisiteur implements Visiteur {
 
-	int profondeur = 0;
+	int profondeur;
 
 	public HierarchiqueVisiteur() {
+		this.profondeur = 0;
 	}
 
 	@Override
@@ -20,8 +19,7 @@ public class HierarchiqueVisiteur implements Visiteur {
 
 	@Override
 	public void visit(Repertoire repertoire) {
-		System.out
-				.println(repertoire.getNom() + "   " + repertoire.getTaille());
+		System.out.println(repertoire.getNom());
 	}
 
 	@Override

@@ -17,18 +17,25 @@ public class GlobalNameVisiteur implements Visiteur {
 	
 	@Override
 	public void visit(Fichier fichier) {
-		for(String nom : rep){
-			System.out.print(nom + "\\");
-		}
-		System.out.println();
+		afficher();
 	}
 
 	@Override
 	public void visit(Repertoire repertoire) {
+		afficher();
+	}
+
+	private void afficher() {
+		boolean first = true;
 		for(String nom : rep){
-			System.out.print(nom + "\\");
+			if(first){
+				System.out.print(nom);
+				first = false;
+			}else{
+				System.out.print("\\" + nom);
+			}
 		}
-		System.out.println();
+		System.out.println();//Pour faire un saut de ligne.
 	}
 
 	@Override
@@ -38,10 +45,7 @@ public class GlobalNameVisiteur implements Visiteur {
 
 	@Override
 	public void afterVisit(ComposantSysteme composantSysteme) {
-		int size = rep.size();
-		if(size > 0){
-			rep.remove(composantSysteme.getNom());
-		}
+		rep.remove(composantSysteme.getNom());
 	}
 
 }
