@@ -1,0 +1,6 @@
+package fr.unilim.info;
+
+public enum SoniEnum {
+	DENTS,
+	PIEDS;
+}

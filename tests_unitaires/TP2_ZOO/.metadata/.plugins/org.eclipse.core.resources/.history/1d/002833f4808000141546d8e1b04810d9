@@ -1,0 +1,57 @@
+package fr.unilim.info;
+
+import java.util.ArrayList;
+
+public class Zoo {
+	private ArrayList<Animal> listeAnimaux;
+
+	public Zoo() {
+		this.listeAnimaux = new ArrayList<Animal>();
+	}
+	
+	public void ajouterAnimal(Animal animal) {
+		if(animal == null) {
+			throw new IllegalArgumentException("Il n'y pas d'animal");
+		}
+		this.listeAnimaux.add(animal);
+	}
+	
+	public void retirerAnimal(Animal animal) {
+		if(!listeAnimaux.contains(animal)) {
+			throw new IllegalArgumentException("L'animal n'est pas dans le zoo");
+		}
+		this.listeAnimaux.remove(animal);
+	}
+	
+	public boolean estVide() {
+		return this.listeAnimaux.isEmpty();
+	}
+	
+	public double calculerViandeHebdo() {
+		double poidsViande = 0;
+		
+		for (Animal animal : listeAnimaux) {
+			poidsViande += animal.calculerViandeHebdo();
+		}
+		
+		return poidsViande;
+	}
+
+	public ArrayList<Animal> getListeAnimaux() {
+		return listeAnimaux;
+	}
+
+	public void setListeAnimaux(ArrayList<Animal> listeAnimaux) {
+		this.listeAnimaux = listeAnimaux;
+	}
+
+	@Override
+	public String toString() {
+		String str = "";
+		
+		for (Animal animal : listeAnimaux) {
+			str += animal.toString()+"\n";
+		}
+		return str;
+	}
+}

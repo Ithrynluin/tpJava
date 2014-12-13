@@ -1,0 +1,13 @@
+package fr.unilim.info;
+
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+public class AnimalTest {
+	@Test
+	public void testAnimalCarnivore() {
+		Animal lion = new Animal("Lion", true, 217.5);
+		
+		assertEquals(lion.toString(), "espece=[Lion], carnivore[true], poids=[217.5]");
+	}
+}

@@ -1,0 +1,42 @@
+package fr.unilim.info;
+
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+public class AnimalTest {
+	@Test
+	public void testAnimalToString() {
+		Animal lion = new Animal("Lion", true, 217.5);
+		String retourToString = "espece=[Lion], carnivore=[true], poids=[217.5]";
+		
+		assertEquals(lion.toString(), retourToString);
+	}
+	
+	@Test
+	public void testAnimalEqualsTrue() {
+		Animal lion1 = new Animal("Lion", true, 217.5);
+		Animal lion2 = new Animal("Lion", true, 217.5);
+		
+		assertEquals(lion1, lion2);
+		assertTrue(lion1.equals(lion2));
+	}
+	
+	@Test
+	public void testAnimalEqualsFalse() {
+		Animal lion = new Animal("Lion", true, 217.5);
+		Animal tigre = new Animal("Tigre", true, 217.5);
+		Animal lionHerbivore = new Animal("Lion", false, 217.5);
+		Animal lion300kg = new Animal("Lion", true, 300.0);
+		
+		assertFalse(lion.equals(tigre));
+		assertFalse(lion.equals(lionHerbivore));
+		assertFalse(lion.equals(lion300kg));
+	}
+	
+	@Test
+	public void testAnimalEqualsFalseQuandNull() {
+		Animal lion = new Animal("Lion", true, 217.5);
+		
+		assertFalse(lion.equals(null));
+	}
+}

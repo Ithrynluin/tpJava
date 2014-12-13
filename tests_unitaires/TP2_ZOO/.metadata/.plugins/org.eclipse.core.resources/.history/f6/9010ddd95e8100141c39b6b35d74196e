@@ -1,0 +1,77 @@
+package fr.unilim.info;
+
+import java.util.ArrayList;
+
+public class Zoo {
+	private ArrayList<Animal> listeAnimaux;
+
+	public Zoo() {
+		this.listeAnimaux = new ArrayList<Animal>();
+	}
+	
+	public void ajouterAnimal(Animal animal) {
+		if(animal == null) {
+			throw new IllegalArgumentException("Il n'y pas d'animal");
+		}
+		this.listeAnimaux.add(animal);
+	}
+	
+	public void retirerAnimal(Animal animal) {
+		if(!listeAnimaux.contains(animal)) {
+			throw new IllegalArgumentException("L'animal n'est pas dans le zoo");
+		}
+		this.listeAnimaux.remove(animal);
+	}
+	
+	public boolean estVide() {
+		return this.listeAnimaux.isEmpty();
+	}
+	
+	public double calculerViandeHebdo() {
+		double poidsViande = 0;
+		
+		for (Animal animal : this.listeAnimaux) {
+			poidsViande += animal.calculerViandeHebdo();
+		}
+		
+		return poidsViande;
+	}
+	
+	public ArrayList<Animal> recupererAnimauxASoigner(SoinEnum soin) {
+		ArrayList<Animal> listeAnimauxASoigner = new ArrayList<Animal>();
+		
+		for (Animal animal : this.listeAnimaux) {
+			if(soin == SoinEnum.DENTS) {
+				if(animal.isCarnivore()) {
+					listeAnimauxASoigner.add(animal);
+				}
+			} else if(soin == SoinEnum.PIEDS) {
+				if(animal.getPoids() >= 200) {
+					listeAnimauxASoigner.add(animal);
+				}
+			} else {
+				throw new IllegalArgumentException("Le paramètre entré n'est pas accepté par la méthode");
+			}
+		}
+		
+		return listeAnimauxASoigner;
+	}
+
+	public ArrayList<Animal> getListeAnimaux() {
+		return listeAnimaux;
+	}
+
+	public void setListeAnimaux(ArrayList<Animal> listeAnimaux) {
+		this.listeAnimaux = listeAnimaux;
+	}
+
+	@Override
+	public String toString() {
+		String str = "";
+		
+		for (Animal animal : this.listeAnimaux) {
+			str += animal.toString()+"\n";
+		}
+		return str;
+	}
+}

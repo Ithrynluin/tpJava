@@ -1,0 +1,74 @@
+package fr.unilim.info;
+
+public class Animal {
+	private String espece;
+	private boolean carnivore;
+	private double poids;
+	
+	public Animal(String espece, boolean carnivore, double poids) {
+		this.espece = espece;
+		this.carnivore = carnivore;
+		this.poids = poids;
+	}
+	
+	public double calculerViandeHebdo() {
+		double poidsViande = 0;
+		
+		if(this.carnivore) {
+			poidsViande = this.poids/4;
+		}
+		return poidsViande;
+	}
+
+	public String getEspece() {
+		return espece;
+	}
+
+	public void setEspece(String espece) {
+		this.espece = espece;
+	}
+
+	public boolean isCarnivore() {
+		return carnivore;
+	}
+
+	public void setCarnivore(boolean carnivore) {
+		this.carnivore = carnivore;
+	}
+
+	public double getPoids() {
+		return poids;
+	}
+
+	public void setPoids(double poids) {
+		this.poids = poids;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Animal other = (Animal) obj;
+		if (carnivore != other.carnivore)
+			return false;
+		if (espece == null) {
+			if (other.espece != null)
+				return false;
+		} else if (!espece.equals(other.espece))
+			return false;
+		if (Double.doubleToLongBits(poids) != Double
+				.doubleToLongBits(other.poids))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "espece=[" + espece + "], carnivore=[" + carnivore
+				+ "], poids=[" + poids + "]";
+	}
+}

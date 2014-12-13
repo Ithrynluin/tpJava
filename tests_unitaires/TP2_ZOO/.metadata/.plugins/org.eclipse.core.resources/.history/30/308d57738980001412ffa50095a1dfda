@@ -1,0 +1,118 @@
+package fr.unilim.info;
+
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import fr.unilim.info.fixture.AnimalFixture;
+
+public class ZooTest {
+	private Zoo zoo;
+	
+	@Before
+	public void setUp() {
+		zoo = new Zoo();
+		zoo.setListeAnimaux(AnimalFixture.creerListeAnimaux());
+	}
+	
+	@After
+	public void tearDown() {
+		zoo = null;
+	}
+	
+	@Test
+	public void testAjouterAnimal() {
+		Animal tortue = new Animal("Tortue", false, 352.4);
+		ArrayList<Animal> listeAnimal = AnimalFixture.creerListeAnimaux();
+		
+		zoo.ajouterAnimal(tortue);
+		listeAnimal.add(tortue);
+		
+		assertEquals(listeAnimal, zoo.getListeAnimaux());
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testAjouterAnimalRenvoieErreur() {
+		zoo.ajouterAnimal(null);
+	}
+	
+	@Test
+	public void testRetirerAnimal() {
+		Animal bison = new Animal("Bison", false, 698.1);
+		ArrayList<Animal> listeAnimal = AnimalFixture.creerListeAnimaux();
+		
+		zoo.retirerAnimal(bison);
+		listeAnimal.remove(bison);
+		
+		assertEquals(listeAnimal, zoo.getListeAnimaux());
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testRetirerAnimalRenvoieErreurAvecNull() {
+		zoo.retirerAnimal(null);
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testRetirerAnimalRenvoieErreurAvecInexistant() {
+		Animal tortue = new Animal("Tortue", false, 352.4);
+		
+		zoo.retirerAnimal(tortue);
+	}
+	
+	@Test
+	public void testEstVide() {
+		Zoo zooVide = new Zoo();
+		
+		assertTrue(zooVide.estVide());
+		assertFalse(zoo.estVide());
+	}
+	
+	@Test
+	public void testCalculerViandeHebdo() {
+		double poidsViande = 233;
+		assertTrue(poidsViande == zoo.calculerViandeHebdo());
+	}
+	
+	@Test
+	public void testRecupererAnimauxASoignerDents() {
+		ArrayList<Animal> listeAnimauxASoigner = new ArrayList<Animal>();
+		Animal lion = new Animal("Lion", true, 248.2);
+		Animal tigre = new Animal("Tigre", true, 265.3);
+		Animal requin = new Animal("Requin", true, 402.7);
+		Animal serpent = new Animal("Serpent", true, 15.8);
+		
+		listeAnimauxASoigner.add(lion);
+		listeAnimauxASoigner.add(tigre);
+		listeAnimauxASoigner.add(requin);
+		listeAnimauxASoigner.add(serpent);
+		
+		assertEquals(listeAnimauxASoigner, zoo.recupererAnimauxASoigner(SoinEnum.DENTS));
+	}
+	
+	@Test
+	public void testRecupererAnimauxASoignerPieds() {
+		ArrayList<Animal> listeAnimauxASoigner = new ArrayList<Animal>();
+		Animal lion = new Animal("Lion", true, 248.2);
+		Animal tigre = new Animal("Tigre", true, 265.3);
+		Animal requin = new Animal("Requin", true, 402.7);
+		Animal kangourou = new Animal("Kangourou", false, 425.4);
+		Animal bison = new Animal("Bison", false, 698.1);
+		
+		listeAnimauxASoigner.add(lion);
+		listeAnimauxASoigner.add(tigre);
+		listeAnimauxASoigner.add(requin);
+		listeAnimauxASoigner.add(bison);
+		listeAnimauxASoigner.add(kangourou);
+		
+		assertEquals(listeAnimauxASoigner, zoo.recupererAnimauxASoigner(SoinEnum.PIEDS));
+	}
+	
+	@Test
+	public void testToString() {
+		String retourToString = "";
+	}
+}
