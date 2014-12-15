@@ -94,7 +94,7 @@ public class Animal {
 	}
 
 	/**
-	 * @see java.lang.Object#equals()
+	 * @see java.lang.Object#equals(Object)
 	 */
 	@Override
 	public boolean equals(Object obj) {
