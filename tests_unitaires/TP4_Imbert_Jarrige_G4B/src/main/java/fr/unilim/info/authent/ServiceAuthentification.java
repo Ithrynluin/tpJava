@@ -17,7 +17,7 @@ public class ServiceAuthentification {
 	private IAnnuaire annuaire;
 
 	/**
-	 * Liste des identifiants des comptes actuellement connectés au système
+	 * Liste des identifiants des comptes actuellement connectï¿½s au systï¿½me
 	 */
 	private List<String> sessionsEnCours;
 
@@ -40,10 +40,18 @@ public class ServiceAuthentification {
 	 * @throws CompteDejaInscritException si l'utilisateur est deja inscrit dans l'annuaire
 	 */
 	public boolean inscrire(String id, String motDePasse) throws CompteDejaInscritException {
-
-		//TODO : A implementer
-
-		return false;
+		if(id == null){
+			throw new IllegalArgumentException("L'id ne doit pas Ãªtre null"); 
+		}
+		if(motDePasse == null){
+			throw new IllegalArgumentException("Le mot de passe ne doit pas Ãªtre null");
+		}
+		Compte compte = this.annuaire.recupererCompteParIdentifiant(id);
+		if(compte != null){
+			throw new CompteDejaInscritException("L'utilisateur existe dÃ©jÃ ");
+		}
+		
+		return this.annuaire.creerCompte(id, motDePasse);
 	}
 
 	/**
@@ -55,10 +63,15 @@ public class ServiceAuthentification {
 	 * @throws CompteInexistantException si l'utilisateur n'est pas inscrit
 	 */
 	public boolean desinscrire(String id) throws CompteInexistantException {
+		if(id == null){
+			throw new IllegalArgumentException("L'id ne doit pas Ãªtre null"); 
+		}
+		Compte compte = this.annuaire.recupererCompteParIdentifiant(id);
+		if(compte == null){
+			throw new CompteInexistantException("L'utilisateur n'existe pas");
+		}
 
-		//TODO : A implementer
-
-		return false;
+		return this.annuaire.supprimerCompte(id);
 	}
 
 	/**
@@ -72,13 +85,22 @@ public class ServiceAuthentification {
 	 * @throws MotDePasseIncorrectException si le mot de passe est incorrect
 	 */
 	public void connecter(String id, String motDePasse) throws CompteInexistantException, CompteInactifException, MotDePasseIncorrectException {
-
-		//TODO : A implementer
-
+		Compte compte = this.annuaire.recupererCompteParIdentifiant(id);
+		if(compte == null){
+			throw new CompteInexistantException("L'utilisateur n'existe pas");
+		}
+		if(!compte.isActif()){
+			throw new CompteInactifException("Le compte est inactif");
+		}
+		if(!annuaire.verifierMotDePasse(id, motDePasse)){
+			throw new MotDePasseIncorrectException("Le mot de passe est incorrect");
+		}
+		
+		this.getSessionsEnCours().add(id);
 	}
 
 	/**
-	 * Vérifie si un utilisateur est actuellement connecté au systeme
+	 * Vï¿½rifie si un utilisateur est actuellement connectï¿½ au systeme
 	 * @param id identifiant de l'utilisateur
 	 * @return true si l'utilisateur est connecte, false sinon
 	 */
