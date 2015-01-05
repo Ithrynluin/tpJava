@@ -40,9 +40,15 @@ public class ConnectionTest {
 		};
 	}
 	
-	/*
-	 * Tests de la méthode connecter
-	 */
+	@After
+	public void tearDown(){
+		this.serviceAuthentification = null;
+	}
+	
+	////////////////////////////////////////////////////////////////////
+	// Tests de la méthode connecter
+	///////////////////////////////////////////////////////////////////
+	
 	@Test
 	public void testConnecterWhenBonParametre() throws CompteInexistantException, CompteInactifException, MotDePasseIncorrectException{
 		
@@ -76,9 +82,10 @@ public class ConnectionTest {
 		serviceAuthentification.connecter("1", "azerty");
 	}
 	
-	/*
-	 * Tests de la méthode estConnecter
-	 */
+	////////////////////////////////////////////////
+	// Tests de la méthode estConnecter
+	////////////////////////////////////////////////
+	
 	@Test
 	public void testEstConnecteWhenSessionEnCours(){
 		Mockito.when(sessionMock.contains("1")).thenReturn(true);
@@ -101,9 +108,10 @@ public class ConnectionTest {
 		assertEquals(expected, actual);
 	}
 	
-	/*
-	 * Tests de la méthode déconnecter
-	 */
+	//////////////////////////////////////
+	// Tests de la méthode déconnecter
+	//////////////////////////////////////
+	
 	@Test
 	public void testDeconnecterWhenEstConnecter(){
 		Mockito.when(sessionMock.contains("1")).thenReturn(true);
@@ -125,10 +133,5 @@ public class ConnectionTest {
 		boolean expected = false;
 		
 		assertEquals(expected, actual);
-	}
-	
-	@After
-	public void tearDown(){
-		this.serviceAuthentification = null;
 	}
 }

@@ -28,9 +28,15 @@ public class InscriptionTest {
 		this.serviceAuthentification = new ServiceAuthentification(annuaire);
 	}
 	
-	/*
-	 * Tests de la méthode inscrire
-	 */
+	@After
+	public void tearDown(){
+		this.serviceAuthentification = null;
+	}
+	
+	/////////////////////////////////////////
+	// Tests de la méthode inscrire
+	////////////////////////////////////////
+	
 	@Test
 	public void testInscrireWhenBonParamètre() throws CompteDejaInscritException{
 		Mockito.when(annuaire.creerCompte("1", "azerty")).thenReturn(true);
@@ -58,6 +64,10 @@ public class InscriptionTest {
 		serviceAuthentification.inscrire("1", "azerty");
 	}
 	
+	///////////////////////////////////////////////////
+	// Tests de la méthode desincrire
+	//////////////////////////////////////////////////
+	
 	@Test
 	public void testDesinscrireWhenBonId() throws CompteInexistantException{
 		Mockito.when(annuaire.recupererCompteParIdentifiant("1")).thenReturn(new Compte("1"));
@@ -78,11 +88,5 @@ public class InscriptionTest {
 	@Test(expected = CompteInexistantException.class)
 	public void testDesinscrireWhenCompteInexistant() throws CompteInexistantException{
 		serviceAuthentification.desinscrire("2");
-	}
-	
-	@After
-	public void tearDown(){
-		this.serviceAuthentification = null;
-	}
-	
+	}	
 }
