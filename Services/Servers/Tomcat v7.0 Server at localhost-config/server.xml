@@ -22,7 +22,9 @@
   <Listener className="org.apache.catalina.security.SecurityListener" />
   -->
   <!--APR library loader. Documentation at /docs/apr.html -->
-  <Listener SSLEngine="on" className="org.apache.catalina.core.AprLifecycleListener"/>
+  <!--
+  <Listener className="org.apache.catalina.core.AprLifecycleListener" SSLEngine="on" />
+  -->
   <!--Initialize Jasper prior to webapps are loaded. Documentation at /docs/jasper-howto.html -->
   <Listener className="org.apache.catalina.core.JasperListener"/>
   <!-- Prevent memory leaks due to use of particular java/javax APIs-->
@@ -61,7 +63,7 @@
          APR (HTTP/AJP) Connector: /docs/apr.html
          Define a non-SSL HTTP/1.1 Connector on port 8080
     -->
-    <Connector connectionTimeout="20000" port="8080" protocol="HTTP/1.1" redirectPort="8443"/>
+    <Connector URIEncoding="UTF-8" connectionTimeout="20000" port="8080" protocol="HTTP/1.1" redirectPort="8443"/>
     <!-- A "Connector" using the shared thread pool-->
     <!--
     <Connector executor="tomcatThreadPool"
@@ -81,7 +83,9 @@
     -->
 
     <!-- Define an AJP 1.3 Connector on port 8009 -->
-    <Connector port="8009" protocol="AJP/1.3" redirectPort="8443"/>
+    <!--
+    <Connector port="8009" protocol="AJP/1.3" redirectPort="8443" />
+    -->
 
 
     <!-- An Engine represents the entry point (within Catalina) that processes
@@ -125,7 +129,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log." suffix=".txt"/>
 
-      <Context docBase="Premier_Web" path="/Premier_Web" reloadable="true" source="org.eclipse.jst.jee.server:Premier_Web"/><Context docBase="Deuxieme_Web" path="/Deuxieme_Web" reloadable="true" source="org.eclipse.jst.jee.server:Deuxieme_Web"/></Host>
+      <Context docBase="Deuxieme_Web" path="/Deuxieme_Web" reloadable="true" source="org.eclipse.jst.jee.server:Deuxieme_Web"/><Context docBase="Premier_Web" path="/Premier_Web" reloadable="true" source="org.eclipse.jst.jee.server:Premier_Web"/></Host>
     </Engine>
   </Service>
 </Server>

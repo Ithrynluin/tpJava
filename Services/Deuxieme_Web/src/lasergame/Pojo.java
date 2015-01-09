@@ -20,7 +20,7 @@ public class Pojo {
 	@Produces(MediaType.TEXT_PLAIN)
 	@Path("/bonjour")
 	public String direBonjour(){
-		return "Partie démarrée avec succès : "; 
+		return "Partie dï¿½marrï¿½e avec succï¿½s : "; 
 	}
 	
 	@GET
