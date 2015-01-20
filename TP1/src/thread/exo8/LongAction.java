@@ -19,6 +19,7 @@ public class LongAction implements Runnable {
 			}
 			System.out.print(".");
 		}
+		System.out.println();
 	}
 
 }
